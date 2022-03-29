@@ -1,11 +1,11 @@
 from PIL import Image
 import imagehash
-hash0 = imagehash.average_hash(Image.open('csv\cardbase.png'))
+hashbase = imagehash.average_hash(Image.open('csv\cardbase.png'))
 for i in range (14):
-  hash1 = imagehash.average_hash(Image.open(f'csv\card{i}.png'))
-  cutoff = 20  # maximum bits that could be different between the hashes.
+  hashdosUsers = imagehash.average_hash(Image.open(f'csv\card{i}.png'))
+  Tolerancia = 20  #  quantidade maxima de bits que podem ser diferentes entre os hashes.
 
-  if hash0 - hash1 < cutoff:
-    print(f"imagem{i}", hash1,'imagem é similar')
+  if hashbase - hashdosUsers < Tolerancia:
+    print(f"imagem{i}", hashdosUsers,'esta imagem é similar, portanto foi aprovada!')
   else:
-    print(f"imagem{i}", hash1,'imagem não é similar')
+    print(f"imagem{i}", hashdosUsers,'imagem não é similar, portanto não foi aprovada!')
